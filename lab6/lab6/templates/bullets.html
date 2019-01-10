@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Объявления{% endblock %}
+
+{% block body %}
+    <ul class="list-group">
+        {% for bullet in bullets %}
+            <li class="list-group-item"><a href="{% url 'bullet_url' bullet.id %}"><b>{{bullet.id}} &ndash; {{ bullet.name }}</b> <small>{{ bullet.datetime }}</small></a></li>
+        {% empty %}
+            <li class="list-group-item disabled">empty list</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
